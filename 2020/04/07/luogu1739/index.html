@@ -22,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Hello World - 澈</title>
+  <title>【题解】Luogu1739 表达式括号匹配 - 澈</title>
+  
+    <meta name="keywords" content="算法,题解">
   
 
+  
+    <meta name="description" content="提示：这是一篇良心博客。在这里，你会看到所有你可能踩到的坑。所以，作者用这个方式来掩饰自己超蒻……">
   
 
   <!-- feed -->
@@ -424,7 +428,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        Hello World
+        【题解】Luogu1739 表达式括号匹配
       </h1>
       <div class='new-meta-box'>
         
@@ -443,7 +447,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年2月22日</p>
+    <p>发布于：2020年4月7日</p>
   </a>
 </div>
 
@@ -454,7 +458,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Hello World" data-path="/2021/02/22/hello-world/">
+      <div id="lc-pv" data-title="【题解】Luogu1739 表达式括号匹配" data-path="/2020/04/07/luogu1739/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -472,19 +476,40 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+  <h1 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h1><p>这是一篇良心博客。<br>在这里，你会看到所有你可能踩到的坑。<br><del>所以，作者用这个方式来掩饰自己超蒻……</del></p>
+<span id="more"></span>
+<hr>
+<h1 id="踩坑路程"><a href="#踩坑路程" class="headerlink" title="踩坑路程"></a>踩坑路程</h1><p>一眼看过去，水题一个！随手写了这么一个代码：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(c = getchar()&amp;&amp; c != <span class="string">&#x27;@&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) flag --;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; !flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：<br><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082210314-170958010.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082210314-170958010.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><del>（艹测评机你不打脸会死啊喂）</del></p>
+<p>然后，改为<code>do-while</code>：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        c = getchar();</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) flag --;</span><br><span class="line">    &#125;<span class="keyword">while</span>(c != <span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; !flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082428623-501167041.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082428623-501167041.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>再 次 吐 血<br>再次思考，考虑到：<code>)(</code>这种匹配方式，那么加个特判：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        c = getchar();</span><br><span class="line">        <span class="keyword">if</span>(!i &amp;&amp; c == <span class="string">&#x27;)&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) flag --;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;<span class="keyword">while</span>(c != <span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; !flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082859534-1857635014.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407082859534-1857635014.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>再 次 吐 血</p>
+<p>无奈下载了一个数据看了下……<br>艹！还有一个<code>\n</code>！<br>再次修改代码： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        c = getchar();</span><br><span class="line">        <span class="keyword">if</span>(!i &amp;&amp; c == <span class="string">&#x27;)&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) flag --;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;<span class="keyword">while</span>(c != <span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; (!flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407083358589-1335169054.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407083358589-1335169054.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>我…………<br>再次点开一个数据： </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(a*<span class="number">2</span>*<span class="number">3</span>+<span class="number">1</span>*<span class="number">2</span>+<span class="number">3</span>)+(<span class="number">3</span>*<span class="number">2</span>)+(<span class="number">1</span>*<span class="number">2</span>))<span class="number">1</span>*<span class="number">1</span>(@</span><br><span class="line">                         ^   ^</span><br></pre></td></tr></table></figure>
+<p>哦哦哦还有个特判！结尾’(‘的情况！<br>再次修改：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>,before;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        before = c;</span><br><span class="line">        c = getchar();</span><br><span class="line">        <span class="keyword">if</span>(!i &amp;&amp; c == <span class="string">&#x27;)&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>) flag --;</span><br><span class="line">        <span class="keyword">if</span>(before == <span class="string">&#x27;(&#x27;</span> &amp;&amp; c == <span class="string">&#x27;@&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;<span class="keyword">while</span>(c != <span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; (!flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407084017739-1196235639.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407084017739-1196235639.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>还有？！再次点开数据：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">0</span>)*(<span class="number">2</span>+<span class="number">2</span>)*)<span class="number">3</span>+<span class="number">4</span>((<span class="number">3</span>+<span class="number">10</span>)@</span><br></pre></td></tr></table></figure>
+<p>看到这个数据，我突然发现问题就在我的思路上，考虑不到<code>)(</code>这个情况。<br>但是能不能顺着我的思路继续做呢？完 全 可 以。<br>考虑到如果出现<code>)(</code>的话，会出现：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flag = <span class="number">0</span></span><br><span class="line">c = ) flag-- -&gt; flag = <span class="number">-1</span></span><br><span class="line">                       ^^</span><br></pre></td></tr></table></figure>
+<p>负数！那么修改一下：     </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>,before;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>,i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        before = c;</span><br><span class="line">        c = getchar();</span><br><span class="line">        <span class="keyword">if</span>(!i &amp;&amp; c == <span class="string">&#x27;)&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;(&#x27;</span>)flag++;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">&#x27;)&#x27;</span>)flag--;</span><br><span class="line">        <span class="keyword">if</span>(flag &lt; <span class="number">0</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(before == <span class="string">&#x27;(&#x27;</span> &amp;&amp; c == <span class="string">&#x27;@&#x27;</span>)&#123;<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;<span class="keyword">while</span>(c != <span class="string">&#x27;@&#x27;</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; (!flag?<span class="string">&quot;YES&quot;</span>:<span class="string">&quot;NO&quot;</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407085220464-1879017968.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1646455/202004/1646455-20200407085220464-1879017968.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<hr>
+<h1 id="坑的总结"><a href="#坑的总结" class="headerlink" title="坑的总结"></a>坑的总结</h1><ul>
+<li>没看到换行  </li>
+<li><code>(</code>结尾的特判没注意  </li>
+<li><code>)(</code>的情况<code>flag</code>依然等于<code>0</code>导致错误</li>
+</ul>
 
   
   
@@ -502,7 +527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://sdltf.info/2021/02/22/hello-world/>http://sdltf.info/2021/02/22/hello-world/</a></p>
+                <p>本文永久链接是：<a href=http://sdltf.info/2020/04/07/luogu1739/>http://sdltf.info/2020/04/07/luogu1739/</a></p>
               
             
           </blockquote>
@@ -519,7 +544,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-22T14:29:17+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-22T19:45:35+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年2月22日</p>
@@ -530,6 +555,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A2%98%E8%A7%A3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>题解</p></a></div>
+
 
         
       
@@ -541,7 +569,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sdltf.info/2021/02/22/hello-world/&title=Hello World - 澈&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sdltf.info/2020/04/07/luogu1739/&title=【题解】Luogu1739 表达式括号匹配 - 澈&summary=提示：这是一篇良心博客。在这里，你会看到所有你可能踩到的坑。所以，作者用这个方式来掩饰自己超蒻……"
           
           >
           
@@ -553,7 +581,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://sdltf.info/2021/02/22/hello-world/&title=Hello World - 澈&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://sdltf.info/2020/04/07/luogu1739/&title=【题解】Luogu1739 表达式括号匹配 - 澈&summary=提示：这是一篇良心博客。在这里，你会看到所有你可能踩到的坑。所以，作者用这个方式来掩饰自己超蒻……"
           
           >
           
@@ -565,7 +593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://sdltf.info/2021/02/22/hello-world/&title=Hello World - 澈&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://sdltf.info/2020/04/07/luogu1739/&title=【题解】Luogu1739 表达式括号匹配 - 澈&summary=提示：这是一篇良心博客。在这里，你会看到所有你可能踩到的坑。所以，作者用这个方式来掩饰自己超蒻……"
           
           >
           
@@ -593,6 +621,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
   
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/04/07/luogu1308/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【题解】Luogu1308 统计单词数</p>
+          <p class='content'>细节很多，写注释里边了。  
+
+12345678910111213141516171819202122232425262728293031323334353637383940#include &...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/04/05/wait/'>
+          <p class='title'>等待<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>新型冠状病毒引发的疫情过去快三个月了，局面慢慢的有所好转。和大多数人一样，我不是医生，我不是科学家，我们没有能力去扭住这一局面。我能做的，只有替奋战在前线的人们加油鼓劲，然后慢慢等待好消息的来临...</p>
+        </a>
+      
+    </div>
+  
 </article>
 
 
@@ -609,6 +654,59 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
 
 
@@ -631,7 +729,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%9A"><span class="toc-text">提示：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91%E8%B7%AF%E7%A8%8B"><span class="toc-text">踩坑路程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9D%91%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-text">坑的总结</span></a></li></ol>
     </div>
   </section>
 
@@ -650,7 +748,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Hello World";
+  pdata.postTitle="【题解】Luogu1739 表达式括号匹配";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
